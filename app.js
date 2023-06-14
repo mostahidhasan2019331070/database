@@ -1,13 +1,29 @@
 const express = require('express');
 const app = express();
-
+app.set('view engine','ejs')
 app.get('/home', (req, res) => {
   res.send('Welcome to the home page!');
 });
 app.get('/', (req, res) => {
-    res.send('Welcome to the home page!');
+    res.render('index');
   });
+ 
+
+app.get('/search', (req, res) => {
+  const query = req.query.query ; // Access the value of the 'query' parameter
+  
+  // Do something with the 'query' value (e.g., perform a search)
+
+  // Return a response or render a template
+  res.send(`You searched for: ${query}`);
+});
+
+
+
   app.get('/catagory', (req, res) => {
+    res.send('Welcome to the catagory  page!');
+  });
+  app.get('/search ', (req, res) => {
     res.send('Welcome to the catagory  page!');
   });
   
